@@ -1,3 +1,13 @@
+util-linux (2.12r-10ubuntu2) edgy; urgency=low
+
+  * Correct FTFBS on current edgy because _syscall5 went away.
+
+  * Steal the libvolume_id-support patch from SuSE and apply here so that
+    we use libvolume_id for accessing devices via UUID and/or LABEL instead
+    of the less-capable blkid.
+
+ -- Scott James Remnant <scott@ubuntu.com>  Mon, 21 Aug 2006 15:23:58 +0200
+
 util-linux (2.12r-10ubuntu1) edgy; urgency=low
 
   [ Ubuntu Merge-o-Matic ]
