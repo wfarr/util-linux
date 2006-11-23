@@ -1,3 +1,9 @@
+util-linux (2.12r-11ubuntu3) feisty; urgency=low
+
+  * Change libvolumeid-dev build-dep to libvolume-id-dev.
+
+ -- Scott James Remnant <scott@ubuntu.com>  Thu, 23 Nov 2006 11:03:21 +0000
+
 util-linux (2.12r-11ubuntu2) edgy; urgency=low
 
   * Drop PAGE_SIZE usage complete, and switch to sysconf(_SC_PAGESIZE).
