@@ -1,3 +1,10 @@
+util-linux (2.12r-17ubuntu2) feisty; urgency=low
+
+  * debian/control: Update maintainer fields according to debian-
+    maintainer-field spec.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 12 Mar 2007 14:58:14 +0000
+
 util-linux (2.12r-17ubuntu1) feisty; urgency=low
 
   * Merge from Debian unstable.  Remaining changes:
