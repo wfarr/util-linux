@@ -1,3 +1,16 @@
+util-linux (2.12r-19ubuntu2) gutsy; urgency=low
+  
+  * Fix sparc disk label generation. This is required for LDOM
+    and parallel installations with Solaris 10.
+    Add patch: 80sparc-new-label
+
+    Many thanks to David S. Miller for the patch.
+
+    NOTE: users upgrading from older versions should re-run fdisk to
+          update the disk label.
+
+ -- Fabio M. Di Nitto <fabbione@ubuntu.com>  Mon, 02 Jul 2007 07:55:46 +0200
+
 util-linux (2.12r-19ubuntu1) gutsy; urgency=low
 
   * Merge from debian unstable, remaining changes:
