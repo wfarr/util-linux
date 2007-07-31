@@ -1,3 +1,9 @@
+util-linux (2.12r-19ubuntu3) gutsy; urgency=low
+
+  * Add lpia to the list of supported architectures.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 31 Jul 2007 08:46:18 +0000
+
 util-linux (2.12r-19ubuntu2) gutsy; urgency=low
   
   * Fix sparc disk label generation. This is required for LDOM
