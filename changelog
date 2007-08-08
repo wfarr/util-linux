@@ -1,14 +1,27 @@
-util-linux (2.13~rc3-1ubuntu1) gutsy; urgency=low
+util-linux (2.13~rc3-2ubuntu1) gutsy; urgency=low
 
-  * Merge with Debian; remaining changes:
-    - Add lpia to the list of supported architectures.
+  * New debian version.  Remaining ubuntu changes:
     - Add udev rule for calling /sbin/hwclock --hctosys dynamically:
       + debian/hwclock.rules, debian/hwclock.udev: Rule and script.
       + debian/rules: Install those.
-  * Drop 70libvolume_id-support, integrated upstream.
-  * Drop 80sparc-new-label, integrated upstream.
 
- -- Matthias Klose <doko@ubuntu.com>  Thu, 09 Aug 2007 09:34:33 +0200
+ -- LaMont Jones <lamont@ubuntu.com>  Wed,  8 Aug 2007 13:22:04 -0600
+
+util-linux (2.13~rc3-2) unstable; urgency=low
+
+  * mount should Suggest nfs-common, not Recommend it.
+  * Fix build-depends for hurd-i386.  Closes: #333147
+
+ -- LaMont Jones <lamont@debian.org>  Wed,  8 Aug 2007 13:34:42 -0600
+
+util-linux (2.13~rc3-1ubuntu1) gutsy; urgency=low
+
+  * Merge ubuntu changes into a new Debian version.  Remaining:
+    - Add udev rule for calling /sbin/hwclock --hctosys dynamically:
+      + debian/hwclock.rules, debian/hwclock.udev: Rule and script.
+      + debian/rules: Install those.
+
+ -- LaMont Jones <lamont@ubuntu.com>  Wed,  8 Aug 2007 11:57:03 -0600
 
 util-linux (2.13~rc3-1) unstable; urgency=low
 
@@ -30,6 +43,12 @@ util-linux (2.13~rc2-7) unstable; urgency=low
     - blockdev: fix "blockdev --getsz" for large devices
 
  -- LaMont Jones <lamont@debian.org>  Tue,  7 Aug 2007 10:42:56 -0600
+
+util-linux (2.13~rc2-6ubuntu1) gutsy; urgency=low
+
+  * Merge ubuntu fixes into new Debian version.
+
+ -- LaMont Jones <lamont@ubuntu.com>  Sat,  4 Aug 2007 12:33:57 -0600
 
 util-linux (2.13~rc2-6) unstable; urgency=low
 
@@ -57,6 +76,17 @@ util-linux (2.13~rc2-4) unstable; urgency=low
     mounts and no /usr/sbin/mount.nfs.  Closes: #435204, #435223, #435125
 
  -- LaMont Jones <lamont@debian.org>  Mon, 30 Jul 2007 08:07:37 -0600
+
+util-linux (2.13~rc2-3ubuntu1) gutsy; urgency=low
+
+  * Merge ubuntu changes:
+    - Add udev rule for calling /sbin/hwclock --hctosys dynamically:
+      + debian/hwclock.rules, debian/hwclock.udev: Rule and script.
+      + debian/rules: Install those.
+    - use libvolume-id instead of blkid.  This will be true for debian once a
+      current enough udev is available.
+
+ -- LaMont Jones <lamont@ubuntu.com>  Sun, 29 Jul 2007 11:31:21 -0600
 
 util-linux (2.13~rc2-3) unstable; urgency=low
 
@@ -125,12 +155,6 @@ util-linux (2.12r-20) unstable-UNRELEASED; urgency=low
     - Files: 70fstab.dpatch
 
  -- LaMont Jones <lamont@debian.org>  Sun, 17 Jun 2007 06:01:46 -0600
-
-util-linux (2.12r-19ubuntu3) gutsy; urgency=low
-
-  * Add lpia to the list of supported architectures.
-
- -- Matthias Klose <doko@ubuntu.com>  Tue, 31 Jul 2007 08:46:18 +0000
 
 util-linux (2.12r-19ubuntu2) gutsy; urgency=low
   
@@ -208,15 +232,6 @@ util-linux (2.12r-16) unstable; urgency=low
 
  -- LaMont Jones <lamont@debian.org>  Wed, 17 Jan 2007 11:57:35 -0700
 
-util-linux (2.12r-15ubuntu1) feisty; urgency=low
-
-  * Merge from debian unstable, remaining changes:
-    - libvolume_id support patch from SuSE
-    - Drop PAGE_SIZE usage complete, and switch to sysconf(_SC_PAGESIZE).
-    - single hwclock script
-
- -- Scott James Remnant <scott@ubuntu.com>  Mon, 27 Nov 2006 12:22:16 +0000
-
 util-linux (2.12r-15) unstable; urgency=low
 
   * New amd64 rdev patch.  Closes: #396842
@@ -251,24 +266,6 @@ util-linux (2.12r-12) unstable; urgency=low
 
  -- LaMont Jones <lamont@debian.org>  Thu, 19 Oct 2006 19:01:33 -0600
 
-util-linux (2.12r-11ubuntu3) feisty; urgency=low
-
-  * Change libvolumeid-dev build-dep to libvolume-id-dev.
-
- -- Scott James Remnant <scott@ubuntu.com>  Thu, 23 Nov 2006 11:03:21 +0000
-
-util-linux (2.12r-11ubuntu2) edgy; urgency=low
-
-  * Drop PAGE_SIZE usage complete, and switch to sysconf(_SC_PAGESIZE).
-
- -- Adam Conrad <adconrad@ubuntu.com>  Fri, 13 Oct 2006 00:07:40 +1000
-
-util-linux (2.12r-11ubuntu1) edgy; urgency=low
-
-  * Merge NFS fix from Debian.
-
- -- LaMont Jones <lamont@ubuntu.com>  Tue, 19 Sep 2006 14:04:00 -0600
-
 util-linux (2.12r-11) unstable; urgency=low
 
   * typos in NFSv4 (GSSDLCK didn't have .pid, and the latest
@@ -276,29 +273,6 @@ util-linux (2.12r-11) unstable; urgency=low
     - modified 30nfs4-fix.dpatch
 
  -- LaMont Jones <lamont@debian.org>  Tue, 19 Sep 2006 09:33:31 -0600
-
-util-linux (2.12r-10ubuntu3) edgy; urgency=low
-
-  * Helps if I add a Build-Depend on libvolumeid
-
- -- Scott James Remnant <scott@ubuntu.com>  Mon, 21 Aug 2006 19:26:53 +0200
-
-util-linux (2.12r-10ubuntu2) edgy; urgency=low
-
-  * Correct FTFBS on current edgy because _syscall5 went away.
-
-  * Steal the libvolume_id-support patch from SuSE and apply here so that
-    we use libvolume_id for accessing devices via UUID and/or LABEL instead
-    of the less-capable blkid.
-
- -- Scott James Remnant <scott@ubuntu.com>  Mon, 21 Aug 2006 15:23:58 +0200
-
-util-linux (2.12r-10ubuntu1) edgy; urgency=low
-
-  [ Ubuntu Merge-o-Matic ]
-  * Merge from debian unstable.
-
- -- Scott James Remnant <scott@ubuntu.com>  Thu, 29 Jun 2006 23:39:59 +0100
 
 util-linux (2.12r-10) unstable; urgency=low
 
@@ -350,52 +324,6 @@ util-linux (2.12r-5) unstable; urgency=low
   * make hwclock prettier.  Closes: #348718
 
  -- LaMont Jones <lamont@debian.org>  Wed, 18 Jan 2006 11:44:06 -0700
-
-util-linux (2.12r-4ubuntu6) dapper; urgency=low
-
-  * NFSv4 patch broke cfs.  Import fix from debian 2.12r-10
-
- -- LaMont Jones <lamont@ubuntu.com>  Mon, 15 May 2006 18:22:15 -0600
-
-util-linux (2.12r-4ubuntu5) dapper; urgency=low
-
-  * Merge NFSv4 from debian (2.12r-9 versions 27-32)
-    - Leave hwclock.sh alone
-    - Turn on fixed nfsv4 patch.  Closes: #302420, #239031
-      - fix compiler warnings in said patch.
-      - Apply nfs4mount.c fix to (dropped) nfsv4 patch.  Closes: #354193
-      Closes: Ubuntu#43581, Ubuntu#27425
-      Thanks to Steinar H. Gunderson <sgunderson@bigfoot.com>
-
- -- LaMont Jones <lamont@ubuntu.com>  Mon,  8 May 2006 13:37:50 -0600
-
-util-linux (2.12r-4ubuntu4) dapper; urgency=low
-
-  * Rip out the log message code from the init script, as it's run in the
-    background so upsets things anyway.
-
- -- Scott James Remnant <scott@ubuntu.com>  Mon, 29 Aug 2005 10:53:26 +0100
-
-util-linux (2.12r-4ubuntu3) dapper; urgency=low
-
-  * Set the hardware clock via a udev rule as soon as /dev/rtc is available.
-    This fixes #33968 for people without /usr on a separate partition.
-
- -- Scott James Remnant <scott@ubuntu.com>  Fri, 21 Apr 2006 11:30:48 +0100
-
-util-linux (2.12r-4ubuntu2) dapper; urgency=low
-
-  * Move init script to S50 so it runs after /usr has definitely been
-    mounted.
-
- -- Scott James Remnant <scott@ubuntu.com>  Thu, 23 Feb 2006 15:32:56 +0000
-
-util-linux (2.12r-4ubuntu1) dapper; urgency=low
-
-  * Take out the duplicate hwclock init scripts, we'll just run this once.
-  * Make the hwclock script silent and run in the background by default
-
- -- Scott James Remnant <scott@ubuntu.com>  Mon, 30 Jan 2006 14:50:07 +0000
 
 util-linux (2.12r-4) unstable; urgency=low
 
