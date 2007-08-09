@@ -1,3 +1,131 @@
+util-linux (2.13~rc3-1ubuntu1) gutsy; urgency=low
+
+  * Merge with Debian; remaining changes:
+    - Add lpia to the list of supported architectures.
+    - Add udev rule for calling /sbin/hwclock --hctosys dynamically:
+      + debian/hwclock.rules, debian/hwclock.udev: Rule and script.
+      + debian/rules: Install those.
+  * Drop 70libvolume_id-support, integrated upstream.
+  * Drop 80sparc-new-label, integrated upstream.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 09 Aug 2007 09:34:33 +0200
+
+util-linux (2.13~rc3-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- LaMont Jones <lamont@debian.org>  Wed,  8 Aug 2007 11:51:16 -0600
+
+util-linux (2.13~rc2-7) unstable; urgency=low
+
+  * If nfs-common is not installed, skip nfs check
+  * More fixes from upstream:
+    - swapon: cleanup fsprobe_*() usage
+    - swapoff: correctly handle UUID= and LABEL= identifiers
+    - mount: fix incorrect behavior when more than one fs type is
+    - tests: add script(1) race condition test
+    - script: fix race conditions
+    - mkfs: remove nonsense from man page
+    - blockdev: use LU and LLU for BLKGETSIZE and BLKGETSIZE64
+    - blockdev: fix "blockdev --getsz" for large devices
+
+ -- LaMont Jones <lamont@debian.org>  Tue,  7 Aug 2007 10:42:56 -0600
+
+util-linux (2.13~rc2-6) unstable; urgency=low
+
+  * More fixes from upstream
+  * mount.preinst: deal with no /proc/mounts.  Closes: #436003
+  * swapoff: handle UUID= and LABEL=.  Closes: #435555
+
+ -- LaMont Jones <lamont@debian.org>  Sat,  4 Aug 2007 18:22:19 -0600
+
+util-linux (2.13~rc2-5) unstable; urgency=low
+
+  * mount.preinst:
+    - check the right directory for mount.nfs.
+      Closes: #435307, #435414, #435223
+    - look for ' nfs ' mounts.  Closes: #435305
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 31 Jul 2007 22:34:08 -0600
+
+util-linux (2.13~rc2-4) unstable; urgency=low
+
+  * switch to using libvolume-id-dev
+  * Recommend: nfs-common so that portmap doesn't become defacto-Required.
+    NFS mounts will not work unless nfs-common is upgraded to at least the
+    Recommended version, so now mount.preinst will fail if there are NFS
+    mounts and no /usr/sbin/mount.nfs.  Closes: #435204, #435223, #435125
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 30 Jul 2007 08:07:37 -0600
+
+util-linux (2.13~rc2-3) unstable; urgency=low
+
+  * add option for 8-bit chars in agetty.  Closes: #221290
+  * Merge upstream fixes (rc2+git)
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 28 Jul 2007 22:34:53 -0600
+
+util-linux (2.13~rc2-2) experimental; urgency=low
+
+  * arch is dealt with upstream now.
+  * Mention hfsplus in mount.8.  Closes: #345106
+  * Add m32r.  Closes: #413074
+  * use snprintf in logger.c.  Closes: #118784
+  * Various typos in cfdisk.8.  Closes: #360896
+  * cleanup copyright.  Closes: #290077
+  * manpage typos.  Closes: #360279, #395442
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 17 Jul 2007 23:28:54 -0600
+
+util-linux (2.13~rc2-1) experimental; urgency=low
+
+  * New upstream version
+  * drop libselinux-dev build-dep on kfreebsd-amd64
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 17 Jul 2007 16:41:11 -0600
+
+util-linux (2.13~rc1-2) experimental; urgency=low
+
+  * A little more kfreebsd cleanup
+  * Fix nfs-common dependency
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 13 Jul 2007 08:22:01 -0600
+
+util-linux (2.13~rc1-1) experimental; urgency=low
+
+  * fix ionice build errors on several architectures.  Closes: #432603
+  * no libselinux on kfreebsd-i386
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 10 Jul 2007 22:30:59 -0600
+
+util-linux (2.13~rc1-0) experimental; urgency=low
+
+  * New upstream (util-linux-ng).  Closes: #431817, #355536
+    - several patches were not ported forward from 2.12-19
+      - no kerneli support in crypto loop, since it is not in 2.6 kernels.
+      - 20guesshelper: filesystem detection has been dropped.  Mount is built
+        with filesystem probing
+      - 20xgethostname: does anyone care?
+      - 30nfs*: NFS support has moved to nfs-utils, and removed from
+        util-linux.  Add Depends: nfs-common until Lenny ships.
+        Closes: #417996
+    - umounting usb sticks as a user no longer segfaults. Closes: #410031
+  * Add LSB formatted dependency info in hwclock.sh.  Closes: #330227
+  * Reflect Debian locations in getopt manpage.  Closes: #352221
+  * Conflict/Replaces/Provides: schedutils.  Closes: #322883, #384045
+  * README.Debian.hwclock needs a .gz in hwclock.sh.  Closes: #393539
+  * Deliver tailf.  Closes: #327906
+  * Deliver partx.  Closes: #296615
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 10 Jul 2007 00:05:29 -0600
+
+util-linux (2.12r-20) unstable-UNRELEASED; urgency=low
+
+  * USB unmounting dereferenced a null pointer.  Closes: #410031
+    - Files: 70fstab.dpatch
+
+ -- LaMont Jones <lamont@debian.org>  Sun, 17 Jun 2007 06:01:46 -0600
+
 util-linux (2.12r-19ubuntu3) gutsy; urgency=low
 
   * Add lpia to the list of supported architectures.
@@ -1838,3 +1966,5 @@ util-linux (2.5-1) unstable; urgency=low
 
  -- Guy Maor <maor@ece.utexas.edu>  Thu, 18 Apr 1996 04:32:22 -0500
 
+
+	partx/{addpart,delpart,partx}

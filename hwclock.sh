@@ -12,9 +12,17 @@
 #		 - Added comments to alert users of hwclock issues
 #		   and discourage tampering without proper doc reading.
 
-# WARNING:	Please read /usr/share/doc/util-linux/README.Debian.hwclock
+# WARNING:	Please read /usr/share/doc/util-linux/README.Debian.hwclock.gz
 #		before changing this file. You risk serious clock
 #		misbehaviour otherwise.
+
+### BEGIN INIT INFO
+# Provides:          hwclock
+# Required-Start:    mountdevsubfs
+# Required-Stop:     $local_fs
+# Default-Start:     S
+# Default-Stop:      0 6
+### END INIT INFO
 
 # Set this to any options you might need to give to hwclock, such
 # as machine hardware clock type for Alphas.
@@ -68,7 +76,7 @@ hwclocksh()
 	    # to a very different value and hwclock --adjust is being
 	    # used.
 	    #
-	    # Please read /usr/share/doc/util-linux/README.Debian.hwclock
+	    # Please read /usr/share/doc/util-linux/README.Debian.hwclock.gz
 	    # before enablig hwclock --adjust.
 
 	    #hwclock --adjust $GMT $BADYEAR
