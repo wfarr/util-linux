@@ -1,21 +1,23 @@
 Source: util-linux
+Build-Depends: libncurses5-dev, libslang2-dev (>=2.0.4), gettext, zlib1g-dev, libblkid-dev, uuid-dev, dpkg-dev (>=1.13.12), libselinux1-dev [!kfreebsd-i386 !kfreebsd-amd64 !hurd-i386], debhelper (>=5), lsb-release
 Section: base
 Priority: required
-Build-Depends: libncurses5-dev, libslang2-dev (>=2.0.4-1), gettext, zlib1g-dev, libvolume-id-dev (>=0.113-2), uuid-dev, dpkg-dev (>=1.13.12), libselinux1-dev [!kfreebsd-i386 !kfreebsd-amd64 !hurd-i386]
+Standards-Version: 3.7.3.0
 Maintainer: LaMont Jones <lamont@debian.org>
-Standards-Version: 3.7.2.0
+XS-Vcs-Browser: http://git.debian.org/?p=users/lamont/util-linux.git
+XS-Vcs-Git: git://git.debian.org/~lamont/util-linux.git
 
 Package: util-linux
 Architecture: any
-Depends: ${util-linux:Depends}
 Section: utils
 Priority: required
 Essential: yes
 Depends: lsb-base (>= 3.0-6), tzdata (>=2006c-2)
+Pre-Depends: ${shlibs:Depends}
 Suggests: util-linux-locales, kbd | console-tools, dosfstools
-Replaces: schedutils, miscutils, setterm, fdisk, ${util-linux:Conflicts}
-Conflicts: schedutils, setterm, fdisk, kbd (<< 1.05-3), console-tools (<< 1:0.2.3-21), ${util-linux:Conflicts}
-Provides: schedutils
+Replaces: schedutils, miscutils, setterm, fdisk, linux32, sparc-utils, ${util-linux:Conflicts}
+Conflicts: schedutils, setterm, fdisk, kbd (<< 1.05-3), console-tools (<< 1:0.2.3-21), linux32, ${util-linux:Conflicts}
+Provides: schedutils, linux32
 Description: Miscellaneous system utilities
  This package contains a number of important utilities, most of which
  are oriented towards maintenance of your system.  Some of the more
@@ -39,9 +41,8 @@ Package: mount
 Architecture: alpha amd64 arm armeb armel hppa i386 ia64 lpia m32r m68k mips mipsel powerpc ppc64 sh s390 sparc sparc64
 Essential: yes
 Section: admin
-Depends: ${mount:Depends}
+Pre-Depends: ${shlibs:Depends}
 Suggests: nfs-common (>=1:1.1.0-13)
-Breaks: nfs-common (<<1:1.1.0-7)
 Description: Tools for mounting and manipulating filesystems
  This package provides the mount(8), umount(8), swapon(8),
  swapoff(8), and losetup(8) commands.
@@ -50,27 +51,30 @@ Package: bsdutils
 Architecture: any
 Essential: yes
 Section: utils
-Depends: ${bsdutils:Depends}
+Depends: ${shlibs:Depends}
 Recommends: bsdmainutils
 Description: Basic utilities from 4.4BSD-Lite
  This package contains the bare minimum number of BSD utilities needed
  to boot a Debian system.  You should probably also install
  bsdmainutils to get the remaining standard BSD utilities.
  .
- Included are: logger, renice, replay, script, wall
+ Included are: cal, col, colcrt, colrm, column, logger, renice,
+ script, scriptreplay, ul, wall
 
 Package: fdisk-udeb
 Architecture: alpha amd64 arm armeb armel hppa i386 ia64 lpia m32r mips mipsel powerpc ppc64 hurd-i386 sparc s390
 Priority: extra
 Section: debian-installer
-Depends: ${fdisk-udeb:Depends}
-Description: Partition a hard drive (manual)
- fdisk package
+Depends: ${shlibs:Depends}
+XC-Package-Type: udeb
+XB-Installer-Menu-Item: 99900
+Description: Manually partition a hard drive (fdisk)
 
 Package: cfdisk-udeb
 Architecture: alpha amd64 arm armeb armel hppa i386 ia64 lpia m32r mips mipsel powerpc ppc64 hurd-i386 s390
 Priority: extra
 Section: debian-installer
-Depends: ${cfdisk-udeb:Depends}
-Description: Partition a hard drive (cfdisk)
- Cfdisk package
+Depends: ${shlibs:Depends}
+XC-Package-Type: udeb
+XB-Installer-Menu-Item: 99900
+Description: Manually partition a hard drive (cfdisk)

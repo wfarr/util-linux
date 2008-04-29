@@ -1,3 +1,413 @@
+util-linux (2.13.1.1-1) unstable; urgency=low
+
+  [Steve Grubb]
+
+  * login: audit log injection attack via login
+
+  [Karel Zak]
+
+  * po: merge changes
+   - po: update it.po (from translationproject.org) (Marco Colombo)
+   - po: update nl.po (from translationproject.org) (Benno Schulenberg)
+  * docs: add v2.13.1.1 ReleaseNotes
+  * build-sys: release++ (2.13.1.1)
+
+  [LaMont Jones]
+
+  * control: drop -1 version from libslang2-dev build-dep
+  * control: standards-version 3.7.3.0
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 28 Apr 2008 19:47:33 -0600
+
+util-linux (2.13.1-5) unstable; urgency=low
+
+  * Switch to upstream's more-correct fix for LP#206113
+  * mkswap: when writing the signature page, handle EINTR returns.  LP: #206113
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 14 Apr 2008 18:18:30 -0600
+
+util-linux (2.13.1-4) unstable; urgency=low
+
+  * meta: Drop bashism in preinst.  Closes: #472248
+  * mkswap: when writing the signature page, handle EINTR returns.  LP: #206113
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 11 Apr 2008 21:01:29 -0600
+
+util-linux (2.13.1-3) unstable; urgency=low
+
+  [Kees Cook]
+
+  * swapon: Reinitialize software suspend areas to avoid future corruption.
+    LP: #66637
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 21 Mar 2008 10:11:57 -0600
+
+util-linux (2.13.1-2) unstable; urgency=low
+
+  [Frans Pop]
+
+  * Add menu item numbers for *fdisk udebs.  Closes: #466831
+
+  [Hamish Coleman]
+
+  * agetty: make username-in-uppercase feature optional (off by default.).  Closes: #156242
+
+  [Neil Williams]
+
+  * debian/rules: allow cross-building.  Closes: #465123
+
+  [glandux]
+
+  * hwclock.sh: fix typo.  LP: #103680
+
+  [LaMont Jones]
+
+  * mkswap: Set UUID for swap space.  Closes: #462662  LP: #66637
+  * mkswap: -U UUID cleanup
+
+ -- LaMont Jones <lamont@debian.org>  Thu, 06 Mar 2008 20:33:38 -0700
+
+util-linux (2.13.1-1) unstable; urgency=low
+
+  * New Upstream Release [Karel Zak]
+    - docs: update AUTHORS file
+    - docs: update ReleseNotes
+    - build-sys: release++ (2.13.1)
+    - po: merge files
+      - po: update uk.po (from translationproject.org) (Maxim V. Dziumanenko)
+      - po: update it.po (from translationproject.org) (Marco Colombo)
+      - po: update sl.po (from translationproject.org) (Simon Mihevc)
+      - po: update ru.po (from translationproject.org) (Pavel Maryanov)
+      - po: update cs.po (from translationproject.org) (Petr Pisar)
+      - po: update pt_BR.po (from translationproject.org) (Rodrigo Stulzer Lopes)
+      - po: update id.po (from translationproject.org) (Arif E. Nugroho)
+      - po: update es.po (from translationproject.org) (Santiago Vila Doncel)
+      - po: update hu.po (from translationproject.org) (Gabor Kelemen)
+      - po: update eu.po (from translationproject.org) (Mikel Olasagasti)
+      - po: update ca.po (from translationproject.org) (Josep Puigdemont)
+      - po: update sv.po (from translationproject.org) (Daniel Nylander)
+      - po: update fr.po (from translationproject.org) (Michel Robitaille)
+      - po: update tr.po (from translationproject.org) (Nilgün Belma Bugüner)
+      - po: update ja.po (from translationproject.org) (Daisuke Yamashita)
+      - po: update nl.po (from translationproject.org) (Benno Schulenberg)
+      - po: update pl.po (from translationproject.org) (Andrzej Krzysztofowicz)
+      - po: update da.po (from translationproject.org) (Claus Hindsgaul)
+      - po: update vi.po (from translationproject.org) (Clytie Siddall)
+      - po: update et.po (from translationproject.org) (Meelis Roos)
+      - po: update de.po (from translationproject.org) (Michael Piefel)
+      - po: update fi.po (from translationproject.org) (Lauri Nurmi)
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 19 Jan 2008 08:48:31 -0700
+
+util-linux (2.13.1~rc2-2) unstable; urgency=low
+
+  * hwclockfirst.sh: yet more tweaks for LSB init.  Closes: #459760
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 11 Jan 2008 22:32:15 -0700
+
+util-linux (2.13.1~rc2-1) unstable; urgency=low
+
+  [LaMont Jones]
+
+  * meta: mount should pre-depend on its libs
+  * hwclock.sh: add full path to comment.  Closes: #418107
+  * renice: correctly detect errors in arguments.  Closes: #385245
+
+  [Karel Zak]
+
+  * docs: update AUTHORS file, add all translators
+  * docs: update ReleaseNotes
+  * po: update po files
+    - po: update uk.po [Maxim V. Dziumanenko]
+    - po: update id.po [Arif E. Nugroho]
+    - po: update es.po [Santiago Vila Doncel]
+    - po: update hu.po [Gabor Kelemen]
+    - po: update it.po [Marco Colombo]
+    - po: update sl.po [Simon Mihevc]
+    - po: update ru.po [Pavel Maryanov]
+    - po: update cs.po [Petr Pisar]
+    - po: update pt_BR.po [Rodrigo Stulzer Lopes]
+    - po: add eu.po [Mikel Olasagasti]
+    - po: update ca.po [Josep Puigdemont]
+    - po: update sv.po [Daniel Nylander]
+    - po: update fr.po [Michel Robitaille]
+    - po: update tr.po [Nilgün Belma Bugüner]
+    - po: update ja.po [Daisuke Yamashita]
+    - po: update nl.po [Benno Schulenberg]
+    - po: add pl.po [Andrzej Krzysztofowicz]
+    - po: update da.po [Claus Hindsgaul]
+    - po: update vi.po [Clytie Siddall]
+    - po: update et.po [Meelis Roos]
+    - po: update de.po [Michael Piefel]
+    - po: update fi.po [Lauri Nurmi]
+  * build-sys: release++ (-rc2)
+
+ -- LaMont Jones <lamont@debian.org>  Sun, 06 Jan 2008 20:20:48 -0700
+
+util-linux (2.13-14) unstable; urgency=low
+
+  [Karel Zak]
+
+  * mount: hint about helper program if device doesn't exist.  Closes: #452330
+
+  [LaMont Jones]
+
+  * rules: correct LSB init data for hwclockfirst.sh.  Closes: #458346
+
+ -- LaMont Jones <lamont@debian.org>  Sun, 06 Jan 2008 12:50:08 -0700
+
+util-linux (2.13-13) unstable; urgency=low
+
+  [David Woodhouse]
+
+  * hwclock: check for ENODEV
+
+  [Matthias Koenig]
+
+  * mount: fix fd leak
+
+  [LaMont Jones]
+
+  * sys-utils: Drop duplicate install of setarch manpage links.
+  * agetty: drop useless and unused diff from upstream
+  * hwclock.sh: drop redundant file pointer.  Closes: #453333
+
+  [Frédéric Bothamy]
+
+  * sys-utils: correct setarch.8 manpage link creation.  Closes: #453245
+
+  [Karel Zak]
+
+  * build-sys: remove hardcoded _GNU_SOURCE
+  * mount: don't call canonicalize(SPEC) for cifs, smbfs and nfs.
+    Closes: #446175
+  * blockdev: add --getsz to blockdev.8
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 05 Dec 2007 21:34:36 -0700
+
+util-linux (2.13-12) unstable; urgency=low
+
+  * meta: drop Conflicts: bsdmainutils too
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 19 Nov 2007 19:30:23 -0700
+
+util-linux (2.13-11) unstable; urgency=low
+
+  [LaMont Jones]
+
+  * cal comes from bsdmainutils as well.  Drops Replaces: completely.
+
+  [Pascal Terjan]
+
+  * docs: fix ChangeLog URL
+
+  [Gabor Kelemen]
+
+  * po: update hu.po (from translationproject.org)
+
+  [Karel Zak]
+
+  * losetup: fix errno usage
+  * po: update po files
+
+  [Lauri Nurmi]
+
+  * po: update fi.po (from translationproject.org)
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 14 Nov 2007 22:24:36 -0700
+
+util-linux (2.13-10) unstable; urgency=low
+
+  [KaiGai Kohei]
+
+  * mkswap: possible to crash with SELinux relabeling support
+
+  [Karel Zak]
+
+  * docs: add info about .bugfix releases and branches
+
+  [LaMont Jones]
+
+  * build: don't deliver col* and ul as part of bsdutils for now.  Closes: #446939
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 29 Oct 2007 14:29:49 -0600
+
+util-linux (2.13-9) unstable; urgency=low
+
+  [LaMont Jones]
+
+  * deliver hwclockfirst.sh on ubuntu as well.  LP: #63175
+  * build: don't deliver (emtpy) /usr/share/util-linux.  Closes: #445908
+  * mount.8:  Make package references be the actual binary package name
+    in the distro.  LP: #154399
+
+  [Michael Piefel]
+
+  * po: update de.po (from translationproject.org)
+
+  [Yu Zhiguo]
+
+  * chsh: should use pam_end function to terminate the PAM transaction
+
+  [Benno Schulenberg]
+
+  * po: update nl.po (from translationproject.org)
+
+  [Rajeev V. Pillai]
+
+  * pg: fix segfault on search
+
+  [Karel Zak]
+
+  * mount: -L|-U segfault when label or uuid doesn't exist
+  * tests: fix blkid cache usage
+  * script: dies on SIGWINCH.  Closes: #445956
+  * chfn: add pam_end() call and cleanup PAM code
+  * ionice: add a note about permissions to ionice.1
+  * script: dies on SIGWINCH
+  * po: fix typo in de.po
+  * po: update po files
+  * setarch: generate groff links in a better way
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 20 Oct 2007 20:59:12 -0600
+
+util-linux (2.13-8) unstable; urgency=low
+
+  * Upstream git:
+    - po: update sv.po (from translationproject.org)
+    - mount: doesn't drop privileges properly when calling helpers
+      CVE-2007-5191
+    - hwclock: fix --rtc option.  Closes: #444924
+    - setarch: fix compiler warning
+    - login: login segfaults on EOF (rh#298461)
+    - build-sys: nls/locale handling in util-linux-ng general
+    - blockdev: add missing description about option --report in manpage
+  * fix messages in "hwclock.sh start".  Closes: #436873
+  * Honor DEB_BUILD_OPTIONS=nostrip.  Closes: #443853
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 01 Oct 2007 21:57:41 -0600
+
+util-linux (2.13-7) unstable; urgency=low
+
+  * cfdisk.8: mention slang next to curses.  Closes: #295487
+  * util-linux.postrm: remove /etc/adjtime on purge.  Closes: #245236
+  * hwclock: Reintroduce hwclockfirst.sh on Debian machines.  Closes: #443487
+  * mount.preinst: chroot-check was broken.  Closes: #443466
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 21 Sep 2007 22:10:20 -0600
+
+util-linux (2.13-6) unstable; urgency=low
+
+  * sparc-utils 'sparc64' binary sets ADDR_LIMIT_32BIT.  Closes: LP#141524
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 21 Sep 2007 10:36:39 -0600
+
+util-linux (2.13-5) unstable; urgency=low
+
+  * build: cfdisk doesn't exist on some architectures.
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 12 Sep 2007 10:33:06 -0600
+
+util-linux (2.13-4) unstable; urgency=low
+
+  * build: look for fdisk in the right place.  Closes: LP#138040
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 12 Sep 2007 06:30:18 -0600
+
+util-linux (2.13-3) unstable; urgency=low
+
+  * flock.1: typo in man page.  Closes: #440011
+  * mount: chain of symlinks to fstab causes use of pointer after free
+    Closes: #440562
+  * Replaces: sparc-utils (for sparc{32,64}.  Closes: #440966
+
+ -- LaMont Jones <lamont@debian.org>  Wed, 29 Aug 2007 07:09:06 -0600
+
+util-linux (2.13-2) unstable; urgency=low
+
+  * Don't make rename.ul an alternative for rename.  Closes: #439935.
+  * Don't deliver hexdump (bsdmainutils is newer).  Closes: #439905
+  * Update bsdutils description.  Closes: #439907
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 28 Aug 2007 17:12:29 -0600
+
+util-linux (2.13-1) unstable; urgency=low
+
+  * Changes from upstream:
+    - docs: update AUTHORS file
+    - Revert "mount: improve error message when helper program not present"
+      for translation freeze (reopens LP #131367)  Will be fixed in 2.13.1
+      and 2.14.
+    - taskset: check for existence of sched_getaffinity
+    - setarch: add parisc/parisc64 support
+    - mount: free loop device on failure
+    - mount: avoid duplicates for root fs in mtab
+    - build-sys: release++
+    - docs: update ReleaseNotes, update and sort AUTHORS file
+    - po: update po/ stuff
+    - ionice: clean up error handling
+    - cytune: make the oneliner more specific the cyclades hw in question
+    - docs: update TODO
+    - setarch: add --3gb option for compatibility with Debian linux{32,64} command
+  * Revert "umount: only call update_mtab if mtab_is_writable().", since the
+    fix is already present in a different way.
+  * Have debian/rules deal with architectures that don't get packages.
+    Closes: #439830
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 27 Aug 2007 21:59:00 -0600
+
+util-linux (2.13~rc3-9) unstable; urgency=low
+
+  * debian/rules: cleanup and support nostrip option
+  * build: fdisk (and therefore the udebs) do not get built on m68k.
+  * build: /usr/bin/rename needs to be an alternative.
+    Closes: #439647, #439712
+
+ -- LaMont Jones <lamont@debian.org>  Mon, 27 Aug 2007 02:36:50 -0600
+
+util-linux (2.13~rc3-8) unstable; urgency=low
+
+  * taskset: Don't deliver taskset on m68k.
+  * umount: only call update_mtab if mtab_is_writable().  Closes: #338803
+  * build: switch back to libblkid-dev for Debian.  Closes: #439617
+
+ -- LaMont Jones <lamont@debian.org>  Sat, 25 Aug 2007 21:38:17 -0600
+
+util-linux (2.13~rc3-7) unstable; urgency=low
+
+  * Document git repository location
+  * cytune.8: make the oneliner more specific the cyclades hw in question
+    Closes: #375150
+  * control: Extend package descriptions.  Closes: #384072
+  * Switch to debhelper, clean up delivery of binaries.
+  * bsdutils: deliver more stuff that we build.  Now partly
+    Replaces: bsdmainutils and completely Replaces: linux32.
+
+ -- LaMont Jones <lamont@debian.org>  Fri, 24 Aug 2007 23:27:19 -0600
+
+util-linux (2.13~rc3-6) unstable; urgency=low
+
+  * more upstream changes
+    - docs: add DEPRECATED to EXTRA_DIST
+    - docs: update AUTHORS file
+    - docs: add note about http://translationproject.org
+    - man-pages: cleanup of chrt.1 and taskset.1
+    - mount: improve error message when helper program not present
+    - setarch: cleanup licensing note
+    - setarch: add sparc32bash alias to keep compatibility with sparc32
+    - setarch: add __alpha__ support
+    - po: update de.po, vi.po, nl.po (from translationproject.org)
+  * drop arch.1 man page.  Closes: #438668
+  * deliver the right file for scriptreplay.  Closes: #438771
+  * sfdisk: Allow drives over 2^31 sectors in size.  Closes: #314413
+  * Deliver flock and flock.1.  Closes: #435272
+  * hwclock.sh: Correct message. Closes: #424682
+  * cfdisk: switch back to slang2
+  * setarch: add parisc/parisc64 support
+  * deliver setarch
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 21 Aug 2007 11:10:51 -0600
+
 util-linux (2.13~rc3-5) unstable; urgency=low
 
   * Fix distro check in debian/rules
@@ -1933,6 +2343,3 @@ util-linux (2.5-1) unstable; urgency=low
   * Initial release
 
  -- Guy Maor <maor@ece.utexas.edu>  Thu, 18 Apr 1996 04:32:22 -0500
-
-
-	partx/{addpart,delpart,partx}
