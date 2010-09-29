@@ -1,3 +1,11 @@
+util-linux (2.17.2-3.3) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Report correct disk size on GNU/kFreeBSD.  Thanks Tuco.
+    (Closes: #592292)
+
+ -- Robert Millan <rmh@debian.org>  Wed, 29 Sep 2010 09:18:08 +0200
+
 util-linux (2.17.2-3.2) unstable; urgency=low
 
   * Non-maintainer upload.
