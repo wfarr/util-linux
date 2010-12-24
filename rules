@@ -48,6 +48,15 @@ autofiles:
 	AM_OPTS=--copy ./autogen.sh
 	rm -rf autom4te.cache
 
+newtemplate:
+	debconf-updatepo
+
+msgstats:
+	@cd debian/po && for i in *.po; do x=$$(msgfmt --statistics $$i 2>&1); echo $$i $$x; done; rm -f messages.mo *.po~
+
+msg-email:
+	@podebconf-report-po
+
 clean-preunpatch: 
 	dh_testdir
 	dh_testroot
@@ -66,7 +75,7 @@ install: build
 	dh_installdirs
 	$(MAKE) install DESTDIR=`pwd`/debian/util-linux INSTALL_STRIP_FLAG=""
 	dh_installdocs -i -s
-	install -m 644 login-utils/README.modems-with-agetty debian/util-linux/usr/share/doc/util-linux/README.modems-with-getty
+	install -m 644 login-utils/README.modems-with-agetty debian/util-linux/usr/share/doc/util-linux/README.modems-with-agetty
 	dh_installexamples -i -s
 	dh_installmenu -i -s
 	dh_installcron -i -s
@@ -150,11 +159,8 @@ else
 endif
 endif
 ifneq ($(DEB_HOST_ARCH_OS),hurd)
-	cd debian/util-linux/sbin ; mv agetty getty
-	cd debian/util-linux/usr/share/man/man8 ; mv agetty.8 getty.8
-	perl -pi.bak -e 's/agetty/getty/g' debian/util-linux/usr/share/man/man8/getty.8 \
-		  debian/util-linux/usr/share/doc/util-linux/README.*
-	rm `find debian/util-linux/usr -name \*.bak`
+	cd debian/util-linux/sbin ; ln agetty getty
+	cd debian/util-linux/usr/share/man/man8 ; ln agetty.8 getty.8
 endif
 ifneq ($(DEB_HOST_ARCH_OS),linux)
 	cd debian/util-linux/sbin ; mv mkswap mkswap.linux
@@ -170,6 +176,8 @@ endif
 binary-indep: build install
 	dh_testdir -i
 	dh_testroot -i
+	dh_lintian -i
+	dh_installdebconf
 	dh_installdeb -i
 	dh_gencontrol -i -- -VUpstream=$(Upstream)
 	dh_md5sums -i
@@ -179,6 +187,7 @@ binary-indep: build install
 binary-arch: build install
 	dh_testdir -s
 	dh_testroot -s
+	dh_lintian -s
 	dh_installinit -s -- defaults 15 85
 	[ -n "$(STRIP)" ] || dh_strip -s
 	dh_makeshlibs -s
