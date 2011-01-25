@@ -1,3 +1,20 @@
+util-linux (2.17.2-9) unstable; urgency=low
+
+  * Ack NMU from Christian Perrier <bubulle@debian.org>
+    - Fix encoding for Danish and Slovak debconf translations
+
+  [Adriano Rafael Gomes]
+
+  * Brazilian Portuguese debconf templates translation.  Closes: #610489
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 25 Jan 2011 12:11:43 -0700
+
+util-linux (2.17.2-8) unstable; urgency=low
+
+  * fix mangled characters in debconf translations
+
+ -- LaMont Jones <lamont@debian.org>  Tue, 18 Jan 2011 05:43:24 -0700
+
 util-linux (2.17.2-7) unstable; urgency=low
 
   * dh_installdebconf is needed in binary-arch, not so much in -indep. 
