@@ -1,3 +1,15 @@
+util-linux (2.19.1-3) unstable; urgency=low
+
+  * Apply two patches from Michael Biebl <biebl@debian.org>:
+    - disable libmount on !linux, fixing kfreebsd FTBFS (closes: #631468)
+    - remove empty /usr/share/locale/ from util-linux (closes: #633412)
+  * Apply patch from Roger Leigh <rleigh@debian.org> to make hwclock.sh
+    correctly support /run/udev in addition to /dev/.udev (closes: #629274)
+  * Build with arch:all to resurrect util-linux-locales (closes: #630859)
+  * Add myself to Uploaders, following a short conversation with LaMont.
+
+ -- Adam Conrad <adconrad@0c3.net>  Sun, 17 Jul 2011 06:41:42 +0000
+
 util-linux (2.19.1-2) unstable; urgency=low
 
   [LaMont Jones]
