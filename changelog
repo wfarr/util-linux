@@ -1,3 +1,11 @@
+util-linux (2.19.1-5) unstable; urgency=low
+
+  * Conflict/Replace fstrim to provide smooth upgrades (closes: #627579)
+  * Don't run hwclock-set when running under systemd (closes: #629811)
+  * Switch to using linux-any in place of lists (closes: #635530, #634722)
+
+ -- Adam Conrad <adconrad@0c3.net>  Wed, 03 Aug 2011 13:43:21 +0000
+
 util-linux (2.19.1-4) unstable; urgency=low
 
   * Add missing patch from #631468 to fix agetty linkage on k*bsd
