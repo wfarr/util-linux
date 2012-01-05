@@ -42,6 +42,7 @@ build-arch: build-stamp
 build-indep: build-stamp
 build-stamp:
 	dh_testdir
+	autoreconf -vfi
 	./configure $(CONFOPTS) $(CROSS)
 	$(MAKE) all CPU=$(arch) arch=$(arch)
 	touch build-stamp
