@@ -1,3 +1,9 @@
+util-linux (2.20.1-5.1ubuntu10) trusty; urgency=low
+
+  * Fix memory leak on configure.ac for autopoint. Closes: #724255.
+
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 04 Dec 2013 19:47:39 +0100
+
 util-linux (2.20.1-5.1ubuntu9) saucy; urgency=low
 
   * Apply upstream patch for udf bug when blocksize < 2048 (LP: #1164683)
