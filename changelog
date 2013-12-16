@@ -1,3 +1,18 @@
+util-linux (2.20.1-5.1ubuntu11) trusty; urgency=medium
+
+  * Regularly trim SSDs automatically:
+    - Add debian/fstrim-all: Script to detect which mounted partitions
+      need/support trimming, and call fstrim(8) on all of them. Installed into
+      /usr/sbin/.
+    - Add debian/fstrim-all.8: Manpage for the above.
+    - Add debian/fstrim-all.cron: Trivial shell script to call fstrim-all,
+      so that admins can easily adjust/disable it. Installed as
+      /etc/cron.weekly/fstrim.
+    - See https://blueprints.launchpad.net/ubuntu/+spec/core-1311-ssd-trimming
+    - Closes: #732054
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 16 Dec 2013 08:59:40 +0100
+
 util-linux (2.20.1-5.1ubuntu10) trusty; urgency=low
 
   * Fix memory leak on configure.ac for autopoint. Closes: #724255.

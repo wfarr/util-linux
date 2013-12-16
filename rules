@@ -179,6 +179,12 @@ ifneq ($(DEB_HOST_ARCH_OS),linux)
 	cd debian/util-linux/sbin ; mv mkswap mkswap.linux
 	cd debian/util-linux/usr/share/man/man8 ; mv mkswap.8 mkswap.linux.8
 endif
+	# automatically trim SSD drives
+	if [ -f debian/util-linux/sbin/fstrim ] ; then \
+	    install -m 755 debian/fstrim-all debian/util-linux/sbin; \
+	    install -m 644 debian/fstrim-all.8 debian/util-linux/usr/share/man/man8; \
+	    install -D -m 755 debian/fstrim-all.cron debian/util-linux/etc/cron.weekly/fstrim; \
+	fi
 	dh_compress -i -s
 	dh_fixperms -i -s -Xusr/bin/wall -Xbin/mount -Xbin/umount
 	rm -rf debian/*-udeb/usr/share/doc
