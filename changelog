@@ -1,3 +1,11 @@
+util-linux (2.20.1-5.1ubuntu12) trusty; urgency=medium
+
+  * partx/partx.c: apply upstream commit 84ac311212c0696 for fixing bug
+   with 'partx --update' when used with partitions other than 1 or out of
+   order partition table. (LP: #1244662)
+
+ -- Scott Moser <smoser@ubuntu.com>  Tue, 14 Jan 2014 10:06:30 -0500
+
 util-linux (2.20.1-5.1ubuntu11) trusty; urgency=medium
 
   * Regularly trim SSDs automatically:
