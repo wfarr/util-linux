@@ -16,6 +16,13 @@ contains() {
     [ "${1#*$2}" != "$1" ]
 }
 
+# As long as there are bugs like https://launchpad.net/bugs/1259829 we only run
+# fstrim on Intel and Samsung drives; with --no-model-check it will run on all
+# drives instead.
+if [ "$1" = "--no-model-check" ]; then
+    NO_MODEL_CHECK=1
+fi
+
 DONE=''
 while read DEV MOUNT FSTYPE OPTIONS REST; do
     # only consider /dev/*
@@ -26,8 +33,9 @@ while read DEV MOUNT FSTYPE OPTIONS REST; do
     if ! contains "$SUPPORTED_FS" "$FSTYPE"; then continue; fi
 
     # did we see this already? we need to resolve symlinks
-    # for/dev/disks/by-{label,uuid}, etc.
-    REALDEV=`readlink -f $DEV`
+    # for/dev/disks/by-{label,uuid}, etc.; ignore if the device does not exist
+    # any more
+    REALDEV=`readlink -f $DEV` || continue
     if contains "$DONE" " $REALDEV "; then continue; fi
     DONE="$DONE $REALDEV "
 
@@ -42,7 +50,17 @@ while read DEV MOUNT FSTYPE OPTIONS REST; do
         #echo "device $DEV is on devmapper, skipping TRIM feature check"
         SILENT_FAILURE=1
     else
-        if ! contains "`hdparm -I $REALDEV`" "TRIM"; then
+        HDPARM="`hdparm -I $REALDEV`"
+        if [ -z "$NO_MODEL_CHECK" ]; then
+            if ! contains "$HDPARM" "Intel" && \
+               ! contains "$HDPARM" "INTEL" && \
+               ! contains "$HDPARM" "Samsung" && \
+               ! contains "$HDPARM" "SAMSUNG"; then
+                echo "device $DEV is not an Intel or Samsung drive"
+                continue
+            fi
+        fi
+        if ! contains "$HDPARM" "TRIM"; then
             #echo "device $DEV does not support trimming"
             continue
         fi

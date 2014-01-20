@@ -17,6 +17,14 @@ on them.
 
 It is meant to be called from cron. There is no output on success.
 
+This only runs on Intel and Samsung SSDs as some SSDs with faulty firmware may
+encounter data loss problems when running fstrim under high I/O load (see e. g. 
+https://launchpad.net/bugs/1259829). You can call
+.B fstrim\-all
+with the
+.B \-\-no\-model\-check
+option to disable the vendor check and run fstrim on all SSD drives.
+
 .SH AUTHOR
 Martin Pitt <martin.pitt@ubuntu.com>
 
