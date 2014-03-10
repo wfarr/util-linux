@@ -41,22 +41,31 @@ while read DEV MOUNT FSTYPE OPTIONS REST; do
 
     #echo "device $DEV real $REALDEV mountpoint $MOUNT fstype $FSTYPE"
 
-    # check if that device supports trim; this does not work for devmapper,
-    # though, so just call fstrim on those without the extra check and ignore
-    # errors; for cryptsetup and LVM you also need extra configuration options
-    # to propagate discards, which the admin might have turned off
+    # check if that device supports trim; this does not work for devmapper or
+    # mdadm, though, so just call fstrim on those without the extra check and
+    # ignore errors; for cryptsetup and LVM you also need extra configuration
+    # options to propagate discards, which the admin might have turned off
     unset SILENT_FAILURE
     if [ "${REALDEV#/dev/dm-}" != "$REALDEV" ]; then
         #echo "device $DEV is on devmapper, skipping TRIM feature check"
         SILENT_FAILURE=1
+    elif [ "${REALDEV#/dev/md}" != "$REALDEV" ]; then
+        #echo "device $DEV is on mdadm, skipping TRIM feature check"
+        SILENT_FAILURE=1
+    elif ! type hdparm >/dev/null 2>&1; then
+        echo "hdparm not available, cannot TRIM"
+        exit 0
     else
         HDPARM="`hdparm -I $REALDEV`"
         if [ -z "$NO_MODEL_CHECK" ]; then
             if ! contains "$HDPARM" "Intel" && \
                ! contains "$HDPARM" "INTEL" && \
                ! contains "$HDPARM" "Samsung" && \
-               ! contains "$HDPARM" "SAMSUNG"; then
-                echo "device $DEV is not an Intel or Samsung drive"
+               ! contains "$HDPARM" "SAMSUNG" && \
+               ! contains "$HDPARM" "OCZ" && \
+               ! contains "$HDPARM" "SanDisk" && \
+               ! contains "$HDPARM" "Patriot"; then
+                echo "device $DEV is not a drive that is known-safe for trimming"
                 continue
             fi
         fi

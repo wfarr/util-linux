@@ -1,3 +1,12 @@
+util-linux (2.20.1-5.1ubuntu15) trusty; urgency=medium
+
+  * debian/fstrim-all: Whitelist OCZ, SanDisk, and Patriot too. (see LP
+    #1259829)
+  * debian/fstrim-all: Exit cleanly if hdparm got uninstalled. (LP: #1278048)
+  * debian/fstrim-all: Don't print errors on mdadm devices. (LP: #1276941)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 10 Mar 2014 13:18:58 +0100
+
 util-linux (2.20.1-5.1ubuntu14) trusty; urgency=medium
 
   * debian/fstrim-all: Ignore instead of failing on non-existing devices, such
