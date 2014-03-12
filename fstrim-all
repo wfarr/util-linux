@@ -31,6 +31,8 @@ while read DEV MOUNT FSTYPE OPTIONS REST; do
     if contains "$OPTIONS" discard; then continue; fi
     # only consider supported file systems
     if ! contains "$SUPPORTED_FS" "$FSTYPE"; then continue; fi
+    # ignore temporary devices which already went away
+    [ -e "$DEV" ] || continue
 
     # did we see this already? we need to resolve symlinks
     # for/dev/disks/by-{label,uuid}, etc.; ignore if the device does not exist
