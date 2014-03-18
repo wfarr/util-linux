@@ -55,10 +55,10 @@ while read DEV MOUNT FSTYPE OPTIONS REST; do
         #echo "device $DEV is on mdadm, skipping TRIM feature check"
         SILENT_FAILURE=1
     elif ! type hdparm >/dev/null 2>&1; then
-        echo "hdparm not available, cannot TRIM"
+        #echo "hdparm not available, cannot TRIM"
         exit 0
     else
-        HDPARM="`hdparm -I $REALDEV`"
+        HDPARM="`hdparm -I $REALDEV`" 2>/dev/null || continue
         if [ -z "$NO_MODEL_CHECK" ]; then
             if ! contains "$HDPARM" "Intel" && \
                ! contains "$HDPARM" "INTEL" && \
@@ -67,7 +67,7 @@ while read DEV MOUNT FSTYPE OPTIONS REST; do
                ! contains "$HDPARM" "OCZ" && \
                ! contains "$HDPARM" "SanDisk" && \
                ! contains "$HDPARM" "Patriot"; then
-                echo "device $DEV is not a drive that is known-safe for trimming"
+                #echo "device $DEV is not a drive that is known-safe for trimming"
                 continue
             fi
         fi
