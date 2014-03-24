@@ -31,6 +31,8 @@ if ! getent passwd | grep -q libuuid; then
    useradd -d /var/lib/libuuid -K UID_MIN=$FIRST_SYSTEM_UID -K UID_MAX=$LAST_SYSTEM_UID -g libuuid libuuid
 fi
 
+[ -f /etc/subuid ] && sed -i "/^libuuid:/d" /etc/subuid
+[ -f /etc/subgid ] && sed -i "/^libuuid:/d" /etc/subgid
 mkdir -p /var/lib/libuuid
 chown libuuid:libuuid /var/lib/libuuid
 chmod 2775 /var/lib/libuuid

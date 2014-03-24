@@ -1,3 +1,11 @@
+util-linux (2.20.1-5.1ubuntu18) trusty; urgency=medium
+
+  * Due to the way the libuuid account is created, it will get a uid/gid
+    allocation for userns use. This isn't needed and is a waste of uid/gid
+    so always clear libuuid from subuid/subgid.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 24 Mar 2014 10:49:21 -0400
+
 util-linux (2.20.1-5.1ubuntu17) trusty; urgency=medium
 
   * debian/fstrim-all: Disable echo statements, they are leftovers from
