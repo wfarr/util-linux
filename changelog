@@ -1,3 +1,10 @@
+util-linux (2.20.1-5.1ubuntu20) trusty; urgency=medium
+
+  * Revert the previous change, as it subtly perturbs apt's unlooping
+    algorithms and causes upgrade failures from saucy (see LP1307883)
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Wed, 16 Apr 2014 16:41:35 +0100
+
 util-linux (2.20.1-5.1ubuntu19) trusty; urgency=medium
 
   * Re-introduce the initscripts dep to bring back the transitively
