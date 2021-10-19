@@ -1,3 +1,10 @@
+util-linux (2.27.1-heroku1) trusty; urgency=medium
+
+  * Built from upstream v2.27.1 branch, but with the debian/ files
+    from Ubuntu's Trusty v2.20.x package, with fixes. 
+
+ -- Will Farrington <wfarrington@salesforce.com>  Tue, 19 Oct 2021 20:11:34 +0000
+
 util-linux (2.20.1-5.1ubuntu20) trusty; urgency=medium
 
   * Revert the previous change, as it subtly perturbs apt's unlooping
