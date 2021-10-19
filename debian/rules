@@ -122,6 +122,7 @@ endif
 	rm -f debian/util-linux/usr/share/man/man8/sulogin.8.gz
 	rm -f debian/util-linux/bin/kill
 	rm -f debian/util-linux/usr/share/man/man1/kill.1.gz
+	rm -f debian/util-linux/usr/share/bash-completion/completions/hexdump
 	#
 	#
 	for pkg in bsdutils mount uuid-runtime; do install -m 644 debian/$${pkg}.lintian-overrides debian/$${pkg}/usr/share/lintian/overrides/$${pkg}; done
