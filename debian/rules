@@ -92,7 +92,6 @@ install: build
 	# XXX - push things to where debian has always(?) had them...
 ifeq ($(DEB_HOST_ARCH_OS),linux)
 	mv debian/util-linux/usr/sbin/*part* debian/util-linux/usr/bin
-	mv debian/util-linux/usr/bin/cytune debian/util-linux/usr/sbin
 endif
 	mv debian/util-linux/usr/bin/tailf debian/util-linux/bin
 	mv debian/util-linux/usr/bin/isosize debian/util-linux/sbin
