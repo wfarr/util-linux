@@ -36,7 +36,7 @@ Upstream := $(shell sed 's/^.*(\(.*\)-.*).*/\1/; q' debian/changelog)
 CONFOPTS= --enable-raw --enable-rdev --with-slang --enable-ddate --enable-line --disable-silent-rules
 CONFOPTS += --libdir=/lib/$(DEB_HOST_MULTIARCH) --libexecdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
 ifeq ($(DEB_HOST_ARCH_OS),linux)
-CONFOPTS += --with-selinux --enable-libmount-mount --enable-partx
+CONFOPTS += --with-selinux --enable-libmount-mount --enable-partx --disable-kill --disable-sulogin --disable-nologin --disable-bash-completion --disable-mesg --disable-last --disable-eject
 endif
 
 build: build-arch build-indep
@@ -115,14 +115,6 @@ endif
 	mv debian/util-linux/usr/bin/rename debian/util-linux/usr/bin/rename.ul
 	mv debian/util-linux/usr/share/man/man1/rename.1 debian/util-linux/usr/share/man/man1/rename.ul.1
 	rm -f debian/util-linux/usr/share/info/dir
-	#
-	#
-	# remove binaries that conflict with other packages on trusty
-	rm -f debian/util-linux/sbin/sulogin
-	rm -f debian/util-linux/usr/share/man/man8/sulogin.8.gz
-	rm -f debian/util-linux/bin/kill
-	rm -f debian/util-linux/usr/share/man/man1/kill.1.gz
-	rm -rf debian/util-linux/usr/share/bash-completion
 	#
 	#
 	for pkg in bsdutils mount uuid-runtime; do install -m 644 debian/$${pkg}.lintian-overrides debian/$${pkg}/usr/share/lintian/overrides/$${pkg}; done
