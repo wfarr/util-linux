@@ -1,3 +1,10 @@
+util-linux (2.37.2-heroku1) trusty; urgency=medium
+
+  * Update to upstream 2.37.2 release, but preserve the build configs
+    from the ubuntu/trusty (2.20) release. 
+
+ -- Will Farrington <wfarrington@salesforce.com>  Tue, 19 Oct 2021 19:18:24 +0000
+
 util-linux (2.20.1-5.1ubuntu20) trusty; urgency=medium
 
   * Revert the previous change, as it subtly perturbs apt's unlooping
